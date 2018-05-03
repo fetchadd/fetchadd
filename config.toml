@@ -1,4 +1,23 @@
 baseURL = "https://fetchadd.github.io/"
 languageCode = "zh-cn"
-title = "study and create"
-theme = "ananke"
+title = "study & create"
+theme = "crab"
+
+[Params]
+logoimage="rust-logo-blk.png"
+
+[permalinks]
+blog  = "/blog/:year/:month/:title/"
+
+[taxonomies]
+tags = "tags"
+
+[[menu.main]]
+weight = 1
+name = "Home"
+url = "/"
+
+[[menu.main]]
+weight = 1
+name = "Blog"
+url = "/blog/"
