@@ -1,7 +1,8 @@
 baseURL = "https://fetchadd.github.io/"
 languageCode = "zh-cn"
 title = "study & create"
-theme = "crab"
+theme = "crab"			
+#theme = "ananke"
 
 [Params]
 logoimage="rust-logo-blk.png"
