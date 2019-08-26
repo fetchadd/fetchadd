@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="taxonomies">
+        <h2 class="taxonomies-title">
+            There are {{ terms | length }} categories in total
+        </h2>
+
+        <table class="taxonomies-items">
+            {% for category in terms %}
+                <tr>
+                <td>
+                    <a href="{{ category.permalink }}">
+                        {{ category.name }}
+                        <span class="count">({{ category.pages | length }})</span>
+                    </a>
+                </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock content %}

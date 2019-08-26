@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% import "macros/blog.html" as blog_macros %}
+
+{% block content %}
+    <div class="posts">
+        {% for page in paginator.pages %}
+            <article class="post">
+            {{ blog_macros::title(page=page) }}
+                {% if page.summary  %}
+                <div class="post-summary">
+                    {{ page.summary | safe}}
+                    <a class="read-more" href="{{ page.permalink }}">Read more...</a>
+                </div>
+                {% endif %}
+            </article>
+        {% endfor %}
+    </div>
+
+    {% if paginator.number_pagers > 1 %}
+    <div class="pagination-container">
+        <ul class="pagination">
+            <li><a href="{{ paginator.base_url ~ 1 }}">first</a></li>
+
+            {% if paginator.previous %}
+            <li><a class="previous" href="{{ paginator.previous }}">pre</a></li>
+            {% endif %}
+
+            {% set near_distance = 4 %}
+            {% set visible_pages = [] %}
+            {% set hide_pre_pages = false %}
+            {% set hide_next_pages = false %}
+
+            {% if near_distance * 2 + 1 >= paginator.number_pagers %}
+                {% set visible_pages = range(start=1, end=paginator.number_pagers + 1) %}
+            {% else %}
+                {% if paginator.current_index <=  near_distance + 1 %}
+                    {% set visible_pages = range(start=1, end=near_distance * 2 + 2) %}
+                    {% set hide_next_pages = true %}
+                {% elif paginator.current_index >= paginator.number_pagers - 2 * near_distance %}
+                    {% set visible_pages = range(start=paginator.number_pagers - near_distance * 2, end=paginator.number_pagers + 1) %}
+                    {% set hide_pre_pages = true %}
+                {% else %}
+                    {% set visible_pages = range(start=paginator.current_index - near_distance, end=paginator.current_index  + near_distance + 1) %}
+                    {% set hide_pre_pages = true %}
+                    {% set hide_next_pages = true %}
+                {% endif %}
+            {% endif %}
+
+            {% if hide_pre_pages %}
+                <li>...</li>
+            {% endif %}
+
+
+            {% for i in visible_pages %}
+            <li><a href="{{ paginator.base_url ~ i }}" {% if paginator.current_index == i %}class="current-page"{% endif %}>{{ i }}</a></li>
+            {% endfor %}
+
+            {% if hide_next_pages %}
+                <li>...</li>
+            {% endif %}
+
+            {% if paginator.next %}
+            <li><a class="next" href="{{ paginator.next }}">next</a></li>
+            {% endif %}
+
+            <li><a href="{{ paginator.base_url ~ paginator.number_pagers }}">last</a></li>
+
+            <li class="jump-to-page">jump to <input id="page-jump-to" type="text"></li>
+        </ul>
+    </div>
+    {% endif %}
+{% endblock content %}

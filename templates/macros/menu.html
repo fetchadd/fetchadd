@@ -1,0 +1,24 @@
+{% macro new_menu_item(menu_item) %}
+    {% if menu_item is containing("name") %}
+        <li class="main-menu-item">
+            {% if menu_item is containing("url") %}
+                {% set url = menu_item.url %}
+            {% elif menu_item is containing("path") %}
+                {% set url = get_url(path=menu_item.path) %}
+            {% else %}
+                {% set section = get_section(path= menu_item.name ~ "/_index.md") %}
+                {% set url = section.permalink %}
+            {% endif %}
+
+            {% set paths = current_path | split(pat="/") %}
+
+            <a href={{ url }}
+                       {% if url is containing(paths[0]) %}
+                           class="current"
+                       {% endif %} >
+
+                {{ menu_item.name }}
+            </a>
+        </li>
+    {% endif %}
+{% endmacro %}

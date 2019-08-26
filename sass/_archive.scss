@@ -1,0 +1,13 @@
+.year-archive {
+  @extend .taxnomy-title;
+}
+
+.archive-list {
+  @extend .taxnomy-list;
+}
+
+.post-date {
+  font-size: 15px;
+  padding-left: 20px;
+  color: gray;
+}

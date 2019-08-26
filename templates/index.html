@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta http-equiv="refresh" content="0; url={{ get_url(path="@/" ~ config.extra.blog_section ~ "/_index.md")|safe }}">
+{% endblock head %}
+
+{% block content %}
+    {% if not config.extra is containing("blog_section") %}
+        <p>Please set the extra.blog_section in config.toml </p>
+    {% endif %}
+{% endblock content %}

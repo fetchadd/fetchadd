@@ -1,0 +1,23 @@
+{% extends "base.html"  %}
+
+{% block content %}
+{% set section = get_section(path="blogs/_index.md") %}
+
+{% for year, posts in section.pages | group_by(attribute="year") %}
+    <h2 class="year-archive">{{ year }}<span class="count">{{posts|length}}</span></h2>
+
+    <table class="archive-list">
+        {% for post in posts %}
+            <tr>
+                <td>
+                    <a href="{{ post.permalink }}">{{ post.title }}</a>
+                </td>
+
+                <td>
+                    <span class="post-date">{{ post.date }}</span>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endfor %}
+{% endblock content %}

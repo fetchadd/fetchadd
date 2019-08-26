@@ -1,0 +1,24 @@
+.taxonomies {
+  padding: 0;
+
+  .taxonomies-title {
+    @extend .taxnomy-title;
+  }
+
+  .taxonomies-items {
+    @extend .taxnomy-list;
+    list-style: none;
+
+    .count {
+      padding-left: 10px;
+      color: gray;
+    }
+  }
+}
+
+.taxonomy {
+  .taxonomy-page-title {
+    color: #1da8be;
+    font-size: 20px;
+  }
+}

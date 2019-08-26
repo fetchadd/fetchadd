@@ -1,0 +1,70 @@
+{% import "macros/menu.html" as menu_macros %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ get_url(path="image/favicon.ico") }}">
+    <script type="text/javascript" src="{{ get_url(path="js/jquery-3.4.1.js") }}"></script>
+
+    {% if config.generate_rss %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=true) }}">
+    {% block head %}{% endblock head %}
+</head>
+
+<body>
+<div id="container">
+    <div id="header">
+        <div id="header-content">
+            {% if config.extra is containing("site_logo") %}
+                {% set site_logo = config.extra.site_logo %}
+            {% else %}
+                {% set site_logo = "image/rust-logo-blk.png" %}
+            {% endif %}
+            <div id="site-logo-wrapper">
+                <a href="/"><img id="site-logo" src="{{ get_url(path=site_logo) }}"></a>
+            </div>
+
+            <ul id="main-menu">
+                {% if config.extra is containing("menus") %}
+                    {% for menu_item in config.extra.menus %}
+                        {{ menu_macros::new_menu_item(menu_item=menu_item) }}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+
+            <div id="menu-padding"></div>
+
+            <div class="search-container">
+                <input id="search" type="search" placeholder="Search">
+
+                <div class="search-result">
+                    <div class="search-result-items"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content-container">
+            <div id="content">
+            {% block content %}
+           {% endblock content %}
+            </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="{{ get_url(path="js/elasticlunr.min.js") }}"></script>
+<script type="text/javascript" src="{{ get_url(path="search_index." ~ config.default_language ~ ".js") }}"></script>
+<script type="text/javascript" src="{{ get_url(path="js/base.js") }}"></script>
+
+</body>
+</html>

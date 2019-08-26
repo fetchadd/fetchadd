@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "macros/blog.html" as blog_macros %}
+
+{% block content %}
+<div id="blog-content">
+    {{ blog_macros::title(page=page) }}
+    {{ page.content|safe }}
+</div>
+
+<div id="blog-toc">
+    <!--<div id="close-blog-toc"></div>-->
+    <ul id="main-toc-list" class="toc-list">
+        {% for h1 in toc %}
+        <li>
+            <a href="{{h1.permalink | safe}}">{{ h1.title }}</a>
+            {% if h1.children %}
+            <ul class="toc-list">
+                {% for h2 in h1.children %}
+                <li>
+                    <a href="{{h2.permalink | safe}}">{{ h2.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="toggle-toc">
+    <<
+</div>
+{% endblock content %}

@@ -1,0 +1,81 @@
+#header {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(26,26,26,.1);
+  margin: 0;
+  height: $header_height;
+  box-shadow: 0 1px 3px rgba(26,26,26,.1);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+#header-content {
+  display: flex;
+  width: $display_area_with;
+  margin: 0 auto;
+
+  #site-logo-wrapper {
+    #site-logo {
+      height: $header_height;
+    }
+  }
+
+  #menu-padding {
+    flex: 1 1 auto;
+  }
+
+  $menu_padding: 20px;
+
+  ul#main-menu {
+    list-style: none;
+    margin: 23px 0;
+    padding-left: $menu_padding;
+
+    li {
+      display: inline;
+      margin: 0 $menu_padding 0 0;
+
+      a {
+        text-decoration: none;
+        font-size: 18px;
+
+        &:link,
+        &:active,
+        &:visited {
+          color: #444;
+        }
+
+        &:hover {
+          color: #1da8be;
+        }
+
+        &.current {
+          color: #1da8be;
+        }
+
+      }
+
+
+      &:hover {
+        background: #ffffff;
+      }
+    }
+  }
+
+  .search-container {
+    padding-top: 16px;
+    height: 30px;
+    width: 30%;
+
+    input {
+      width: 100%;
+      height: 30px;
+      padding-left: 26px;
+      border-radius: 3px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: url("/image/search.png") no-repeat 8px center;
+      background-size: 13px;
+    }
+  }
+}
