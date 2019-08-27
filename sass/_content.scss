@@ -3,7 +3,7 @@
   #content {
     width: $display_area_with;
     margin: 0 auto;
-    padding-top: $header_height + 20px;
+    padding-top: $header_height + 80px;
   }
 
   h1,
@@ -135,7 +135,7 @@
 
     ul#main-toc-list {
       list-style: none;
-      padding: $header_height + 98px 20px 20px 20px;
+      padding: $header_height + 178px 20px 20px 20px;
       margin-top: 0;
       margin-left: 20px;
       border-left: 1px dashed #1da8be;
