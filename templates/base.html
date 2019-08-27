@@ -15,7 +15,7 @@
         <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml") }}">
     {% endif %}
 
-    <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=true) }}">
+    <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
     {% block head %}{% endblock head %}
 </head>
 
