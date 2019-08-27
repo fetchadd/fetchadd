@@ -7,7 +7,12 @@ git commit -m "public new content"
 git push origin master
 
 # Build the project.
-zola build
+temp_file=temp`date +"%s"`
+zola build -o ${temp_file}
+rm -r public/*
+
+mv ${temp_file}/* ./public/
+rm -r ${temp_file}
 
 # Go To Public folder
 cd public
@@ -17,11 +22,12 @@ git add .
 # Commit changes.
 msg="rebuilding site `date`"
 if [ $# -eq 1 ]
-then msg="$1"
+  then msg="$1"
 fi
+
 git commit -m "$msg"
 
-# Push source and build repos.
+Push source and build repos.
 git push origin master
 
 # Come Back up to the Project Root
