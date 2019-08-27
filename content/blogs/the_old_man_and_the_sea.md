@@ -1,6 +1,6 @@
 +++
 title = "The Old Man and the Sea"
-description = "The Old Man and the Sea is a short novel written by the American author Ernest Hemingway in 1951 in Cuba, and published in 1952.[1] It was the last major work of fiction by Hemingway that was published during his lifetime. One of his most famous works, it tells the story of Santiago, an aging Cuban fisherman who struggles with a giant marlin far out in the Gulf Stream off the coast of Cuba"
+description = "The Old Man and the Sea is a short novel written by the American author Ernest Hemingway in 1951 in Cuba, and published in 1952.[1] It was the last major work of fiction by Hemingway that was published during his lifetime. One of his most famous works, it tells the story of Santiago"
 date = 2018-08-19
 in_search_index = true
 [taxonomies]

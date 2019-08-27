@@ -9,8 +9,11 @@
                 {% if page.summary  %}
                 <div class="post-summary">
                     {{ page.summary | safe}}
-                    <a class="read-more" href="{{ page.permalink }}">Read more...</a>
+                    <a class="read-more" href="{{ page.permalink }}">...read more</a>
                 </div>
+                {% elif page.description %}
+                    {{ page.description }}
+                    <a class="read-more" href="{{ page.permalink }}">...read more</a>
                 {% endif %}
             </article>
         {% endfor %}

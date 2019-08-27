@@ -63,12 +63,10 @@
   }
 
   a.read-more {
-    float: right;
     &:link,
     &:active,
     &:visited,
     &:hover {
-      color: #555;
       text-decoration: none;
       font-style: italic;
     }
