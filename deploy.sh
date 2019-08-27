@@ -12,7 +12,7 @@ zola build -o ${temp_file}
 rm -r public/*
 
 mv ${temp_file}/* ./public/
-rm -r ${temp_file}
+#rm -r ${temp_file}
 
 # Go To Public folder
 cd public
