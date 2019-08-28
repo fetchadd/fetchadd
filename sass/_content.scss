@@ -155,7 +155,7 @@
 
     ul#main-toc-list {
       list-style: none;
-      padding: $header_height + 163px 20px 20px 20px;
+      padding: $header_height + 150px 20px 20px 20px;
       margin-top: 0;
       margin-left: 20px;
       border-left: 1px dashed #1da8be;
@@ -222,5 +222,9 @@
   td.list-item {
     padding: 1px;
     border-bottom: none;
+  }
+
+  pre {
+    padding: 5px;
   }
 }
