@@ -7,14 +7,14 @@
         {% for year, posts in term.pages | group_by(attribute="year") %}
             <h2 class="year-archive">{{year}}<span class="count">{{posts|length}}</span></h2>
 
-            <table class="archive-list">
+            <table class="taxonomy-list">
                 {% for post in posts %}
                     <tr>
-                        <td>
+                        <td class="taxonomy-item list-item">
                             <a href="{{ post.permalink }}">{{ post.title }}</a>
                         </td>
 
-                        <td>
+                        <td class="taxonomy-item list-item">
                             <span class="post-date">{{ post.date }}</span>
                         </td>
                     </tr>

@@ -9,7 +9,7 @@
         <table class="taxonomies-items">
             {% for category in terms %}
                 <tr>
-                <td>
+                <td class="taxonomies-item list-item">
                     <a href="{{ category.permalink }}">
                         {{ category.name }}
                         <span class="count">({{ category.pages | length }})</span>

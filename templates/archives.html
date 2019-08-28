@@ -9,11 +9,11 @@
     <table class="archive-list">
         {% for post in posts %}
             <tr>
-                <td>
+                <td class="archive-item list-item">
                     <a href="{{ post.permalink }}">{{ post.title }}</a>
                 </td>
 
-                <td>
+                <td class="archive-item list-item">
                     <span class="post-date">{{ post.date }}</span>
                 </td>
             </tr>

@@ -408,23 +408,29 @@ function initToc() {
 
     if (Cookies.get("toc") === "on") {
         blogTocEl.css("display", "block");
-        toggleBtn.html(">>");
+        toggleBtn.css("right", "");
+        toggleBtn.css("display", "block");
+    } else {
+        toggleBtn.css("display", "none");
+        toggleBtn.css("right", "10px");
     }
 
     toggleBtn.bind("click", function (e) {
         var preDisplay = blogTocEl.css("display");
 
-        blogTocEl.toggle("slide");
+         blogTocEl.toggle("slide");
 
         if (preDisplay == null || preDisplay === "none") {
             // blogTocEl.css("display", "block");
             // blogTocEl.show("slide", { direction: "left" });
-            toggleBtn.html(">>");
+            // toggleBtn.html(">>");
+            toggleBtn.css("right", "");
             Cookies.set("toc", "on");
         } else {
             // blogTocEl.css("display", "none");
             // blogTocEl.hide("slide", { direction: "right" });
-            toggleBtn.html("<<");
+            // toggleBtn.html("<<");
+            toggleBtn.css("right", "10px");
             Cookies.set("toc", "off");
         }
     });
@@ -446,9 +452,9 @@ function initToc() {
             }
         }
 
-        if (y > view.height - 20) {
+        if (y > view.height - 40) {
             toggleBtn.css("display", "block");
-        } else {
+        } else if (blogTocEl.css("display") === "none") {
             toggleBtn.css("display", "none");
         }
     };

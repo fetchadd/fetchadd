@@ -29,10 +29,11 @@ a {
   }
 }
 
-.taxnomy-title {
+.taxonomy-title {
   text-align: center;
   border-bottom: 1px dashed;
   margin-top: 0;
+  padding-bottom: 5px;
 
   .count {
     color: gray;
@@ -41,7 +42,7 @@ a {
   }
 }
 
-.taxnomy-list {
+.taxonomy-list {
   margin: auto;
 }
 

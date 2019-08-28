@@ -1,0 +1,13 @@
+{% macro toc_list(h) %}
+    <li>
+        <a href="{{h.permalink | safe}}">{{ h.title }}</a>
+
+        {% if h.children %}
+            <ul class="toc-list">
+              {% for hh in h.children %}
+                  {{ toc_macros::toc_list(h=hh) }}
+              {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}

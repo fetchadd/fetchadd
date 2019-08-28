@@ -2,11 +2,11 @@
   padding: 0;
 
   .taxonomies-title {
-    @extend .taxnomy-title;
+    @extend .taxonomy-title;
   }
 
   .taxonomies-items {
-    @extend .taxnomy-list;
+    @extend .taxonomy-list;
     list-style: none;
 
     .count {
