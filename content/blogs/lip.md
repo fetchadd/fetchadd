@@ -8,7 +8,7 @@ in_search_index = true
 categories = ["读书笔记", "编译"]
 +++
 
-["编程语言实现模式"](https://www.amazon.com/Language-Implementation-Patterns-Domain-Specific-Programming/dp/193435645X)讲解了构建语言应用所需的实用型编译技术， 是一本不可多得的好书。唯一遗憾的是书中使用ANLTR3作为教程，而ANTLR4与ANTLR3相比，有很大的变化，在降低文法书写难度等方面有很大改进，不过文法与之前版本的文法并不兼容"。书中从第6章起，内容都是基于ANTLR3的，所以这里尝试将书中使用ANTLR3实现的功能用ANTLR4来重构。书中的代码可以在[这里](https://pragprog.com/titles/tpdsl/source_code)下载。
+["编程语言实现模式"](https://www.amazon.com/Language-Implementation-Patterns-Domain-Specific-Programming/dp/193435645X)讲解了构建语言应用所需的实用型编译技术， 是一本不可多得的好书。唯一遗憾的是书中使用ANLTR3作为教程。而ANTLR4与ANTLR3相比有很大的变化，在降低文法书写难度等方面有很大改进，不过文法与之前版本的文法并不兼容"。书中从第6章起，内容都是基于ANTLR3的，所以这里尝试将书中使用ANTLR3实现的功能用ANTLR4来重构。书中的代码可以在[这里](https://pragprog.com/titles/tpdsl/source_code)下载。
 
 本文中尝试重构的是"5.3 根据文法自动生成访问器"中的内容。
 
