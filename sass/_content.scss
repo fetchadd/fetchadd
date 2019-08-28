@@ -49,6 +49,7 @@
 
   h1.blog-title {
     text-align: center;
+    margin-bottom: 0;
 
     a {
       text-decoration: none;
@@ -63,7 +64,8 @@
   }
 
   .blog-meta {
-    text-align: center;
+    text-align: right;
+    margin-bottom: 5px;
 
     .blog-time {
       color: #555;
@@ -153,7 +155,7 @@
 
     ul#main-toc-list {
       list-style: none;
-      padding: $header_height + 178px 20px 20px 20px;
+      padding: $header_height + 163px 20px 20px 20px;
       margin-top: 0;
       margin-left: 20px;
       border-left: 1px dashed #1da8be;
@@ -218,6 +220,7 @@
   }
 
   td.list-item {
+    padding: 1px;
     border-bottom: none;
   }
 }

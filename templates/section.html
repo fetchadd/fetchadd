@@ -7,14 +7,17 @@
             <article class="post">
             {{ blog_macros::title(page=page) }}
                 {% if page.summary  %}
-                <div class="post-summary">
-                    {{ page.summary | safe}}
-                    <a class="read-more" href="{{ page.permalink }}">...read more</a>
-                </div>
+                    <div class="post-summary">
+                        {{ page.summary | safe}}
+                        <a class="read-more" href="{{ page.permalink }}">...</a>
+                    </div>
                 {% elif page.description %}
-                    {{ page.description }}
-                    <a class="read-more" href="{{ page.permalink }}">...read more</a>
+                    <div class="post-summary">
+                        {{ page.description }}
+                        <a class="read-more" href="{{ page.permalink }}">...</a>
+                    </div>
                 {% endif %}
+
             </article>
         {% endfor %}
     </div>
