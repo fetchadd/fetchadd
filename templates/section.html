@@ -5,7 +5,8 @@
     <div class="posts">
         {% for page in paginator.pages %}
             <article class="post">
-            {{ blog_macros::title(page=page) }}
+                {{ blog_macros::title(page=page) }}
+
                 {% if page.summary  %}
                     <div class="post-summary">
                         {{ page.summary | safe}}
@@ -13,7 +14,7 @@
                     </div>
                 {% elif page.description %}
                     <div class="post-summary">
-                        {{ page.description }}
+                        {{ page.description | safe }}
                         <a class="read-more" href="{{ page.permalink }}">...</a>
                     </div>
                 {% endif %}

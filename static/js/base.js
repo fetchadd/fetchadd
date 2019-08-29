@@ -397,6 +397,10 @@ function getViewport(){
 }));
 
 function initToc() {
+    if ($("#pseudo-page-id").length == 0) {
+        return;
+    }
+
     var blogContentEl = $("#blog-content");
     var blogTocEl = $("#blog-toc");
     var toggleBtn = $("#toggle-toc");
