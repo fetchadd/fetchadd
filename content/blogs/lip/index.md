@@ -45,7 +45,7 @@ WS  :   (' '|'\r'|'\n')+ {skip();} ;
 ```
 
 ## 使用ANTLR3文法生成AST
-ANTLR3内置了一些辅助构建AST的功能。 在options中将output设置为AST后，ANTLR就会给每个规则方法增加返回值tree, 启始规则会返回整个树的根节点。以下面4.4和5.3节中VecMath文法为例，Parser的每条规则函数会变成`public final VecMathASTParser.prog_return prog() throws RecognitionException`这种形式, 调用Parser.prog()后，便能得到AST的root节点。这里, AST的结构是通过文法定义的。比如根据规则"stat: ID '=' expr -> ^('=' ID expr)", 解析器在匹配"ID '=' expr"语法结构时，会**顺便**构建根节点为'=', 子节点为'ID和'expr'的AST子树，具体的构建过程可以看一下[VecMathASTParser.java](VecMathASTParser.java)代码。对于下面的"VecMath输入", VecMathAST文法构建出的AST如图1所示。
+ANTLR3内置了一些辅助构建AST的功能。 在options中将output设置为AST后，ANTLR就会给每个规则方法增加返回值tree, 启始规则会返回整个树的根节点。以下面4.4和5.3节中VecMath文法为例，Parser的每条规则函数会变成形如`public final VecMathASTParser.prog_return prog() throws RecognitionException`的形式, 调用Parser.prog()后，便能得到AST的root节点。这里, AST的结构是通过文法定义的。比如根据规则"stat: ID '=' expr -> ^('=' ID expr)", 解析器在匹配"ID '=' expr"语法结构时，会**顺便**构建根节点为'=', 子节点为'ID和'expr'的AST子树，具体的构建过程可以看一下[VecMathASTParser.java](VecMathASTParser.java)代码。对于下面的"VecMath输入", VecMathAST文法构建出的AST如图1所示。
 
 *VecMath输入*
 ```
@@ -93,9 +93,9 @@ WS  :   (' '|'\r'|'\n')+ {skip();} ;
 ```
 
 # 使用ANTLR3树文法构建AST外部访问者
-有了AST后, ANTLR3可以使用"树文法"来构建AST的外部访问者，所外"外部访问者"，是指访问过程不是在语法解析过程中进行的，而是独立于语法解析过程，在有了AST之后，一个单独对AST进行访问的过程。 "树文法"与普通文法在语法规则上几乎没什么两样，区别: "树文法"以^开头。此外，两者产生的解析器的"输入"也不相同。对于普通的解析器，输入为词法解析器产生的词法token流; 而对于树文法解析器，它的输入则是AST。5.3节中的树文法如下所示。有关`@members {}`等语法，请参照"The Definitive ANTLR4 Reference"。
+有了AST后, ANTLR3可以使用"树文法"来构建AST的外部访问者，所外"外部访问者"，是指访问过程不是在语法解析过程中进行的，而是独立于语法解析过程，是在有了AST之后，一个单独对AST进行访问的过程。 "树文法"与普通文法在语法规则上几乎没什么两样，区别: "树文法"以^开头。此外，两者产生的解析器的"输入"也不相同。对于普通的解析器，输入为词法解析器产生的词法token流; 而对于树文法解析器，它的输入是AST。5.3节中的树文法如下所示。有关`@members {}`等语法，请参照"The Definitive ANTLR4 Reference"。
 
-这里解释一下"stat:   ^('=' ID  {print($ID.text+" = ");} expr) {print("\n");}", "^('=' ID expr)" 表示匹配以"="为根节点，以'ID'和expr为子节点的AST子树，`{print(ID.text+" = ");}` 为“动作”, "ID {print($ID.text + " = ")}"表示在访问完"ID"节点后执行"{print($ID.txt + " = ")}"动作。
+这里解释一下"stat:   ^('=' ID  {print($ID.text+" = ");} expr) {print("\n");}", "^('=' ID expr)"这种语法: 匹配以"="为根节点，以'ID'和expr为子节点的AST子树，`{print(ID.text+" = ");}` 为“动作”, "ID {print($ID.text + " = ")}"表示在访问完"ID"节点后执行"{print($ID.txt + " = ")}"。
 
 *Print.g树文法*
 ```bash
@@ -154,7 +154,7 @@ WS: (' '|'\r'|'\n')+ -> skip ;
 ```
 ||
 |:----:|
-|<img src="prog.png" style="width: 800px;">|
+|<img src="prog.png" style="width: 8j00px;">|
 |*图2*|
 
 # 使用ANTLR4构建AST访问者
