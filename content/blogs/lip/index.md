@@ -12,7 +12,34 @@ categories = ["读书笔记", "编译"]
 
 本文中尝试重构的是"5.3 根据文法自动生成访问器"中的内容。
 
-# 使用ANTLR文法构建AST
+# 使用ANTLR3文法构建AST
+在ANTLR3中，如果不使用树文法和语法动作, 是无法创建AST的，只能生成一个验证词法和语法是否正确的解析器。
+以下面ANTLR3的文法为例，在文法产生的[Parser](Vec/VecMathParser.java)中, 每条规则对应的函数返回值为void, 如`public final void prog() throws RecognitionException`, 这时Parser只能验证输入是否合乎语法规则，做不了其他事情。
+```bash
+grammar VecMath;
+
+// START: stat
+prog : stat+ ;    // match multiple statements
+stat: ID '=' expr     // match an assignment like "x=3+4"
+    | 'print' expr    // match a print statement like "print 4"
+    ;
+// END: stat
+		
+// START: expr
+	expr:   multExpr ('+' multExpr)* ;       // E.g., "3*4 + 9"
+multExpr: primary (('*'|'.') primary)* ; // E.g., "3*4"
+primary
+        :   INT                              // any integer
+	    |   ID                               // any variable name
+	    |   '[' expr (',' expr)* ']'        // vector literal; E.g. "[1,2,3]"
+	    ;
+// END: expr
+						
+ID  :   'a'..'z'+ ;
+INT :   '0'..'9'+ ;
+WS  :   (' '|'\r'|'\n')+ {skip();} ;
+
+```
 书中的4.4节介绍了“使用ANTLR文法构建AST”的方法。ANTLR3内置了一些辅助构建AST的功能, 在options中将output设置为AST后，ANTLR就会给每个规则方法增加返回值tree。启始规则会返回整个树的根节点。下面以5.3节中VecMath文法为例，解释说明这些文法。
 
 ```bash
