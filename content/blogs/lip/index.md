@@ -154,7 +154,7 @@ WS: (' '|'\r'|'\n')+ -> skip ;
 ```
 ||
 |:----:|
-|<img src="prog.png" style="width: 8j00px;">|
+|<img src="prog.png" style="width: 800px;">|
 |*图2*|
 
 # 使用ANTLR4构建AST访问者
