@@ -25,7 +25,7 @@ languages = [
 
 [extra]
 # Put all your custom variables here
-site_logo = "image/rust-logo-blk.png"
+# site_logo = "image/rust-logo-blk.png"
 blog_section = "blogs"
 menus = [
     {path = "@/blogs/_index.md", name = "Blogs"},
