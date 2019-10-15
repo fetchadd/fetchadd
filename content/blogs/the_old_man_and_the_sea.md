@@ -3,9 +3,9 @@ title = "The Old Man and the Sea"
 description = "The Old Man and the Sea is a short novel written by the American author Ernest Hemingway in 1951 in Cuba, and published in 1952.[1] It was the last major work of fiction by Hemingway that was published during his lifetime. One of his most famous works, it tells the story of Santiago"
 date = 2019-08-19
 in_search_index = true
+draft = true
 [taxonomies]
 categories = ["literature"]
-draft=true
 +++
 
 He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty-four days now without taking a fish. In the first forty days a boy had been with him. But after forty days without a fish the boy’s parents had told him that the old man was now definitely and finally salao, which is the worst form of unlucky, and the boy had gone at their orders in another boat which caught three good fish the first week. It made the boy sad to see the old man come in each day with his skiff empty and he always went down to help him carry either the coiled lines or the gaff and harpoon and the sail that was furled around the mast. The sail was patched with flour sacks and, furled, it looked like the flag of permanent defeat.
